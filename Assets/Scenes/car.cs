@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class car : MonoBehaviour
-{
-    // Start is called before the first frame update
-    public float speed = 0.5f;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
-    }
+{
+    
+[SerializeField] private Rigidbody2D frontTireRB;
+[SerializeField] private Rigidbody2D rearTireRB;
+[SerializeField] private float speed = 0.5f;
+
+private float moveInput;
+
+
+
+private void Update()
+{
+    moveInput = Input.GetAxisRaw("Horizontal");
+
+}
+private void FixedUpdate()
+{
+    frontTireRB.AddTorque(-moveInput * speed * Time.fixedDeltaTime);
+    rearTireRB.AddTorque(-moveInput * speed * Time.fixedDeltaTime);
+}
 
 }
