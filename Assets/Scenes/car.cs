@@ -8,7 +8,7 @@ public class car : MonoBehaviour
     
 [SerializeField] private Rigidbody2D frontTireRB;
 [SerializeField] private Rigidbody2D rearTireRB;
-[SerializeField] private float speed = 0.5f;
+[SerializeField] private float speed = 150f;
 
 private float moveInput;
 
